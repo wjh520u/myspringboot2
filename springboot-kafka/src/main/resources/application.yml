@@ -1,0 +1,19 @@
+-spring:
+  kafka:
+    producer:
+      batch-size: 65536
+      buffer-memory: 524288
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    bootstrap-servers: localhost:9092
+    consumer:
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: my
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #enable-auto-commit: false
+    #listener:
+      #ack-mode: manual_immediate
+
+
+server:
+   port: 8085

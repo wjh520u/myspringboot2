@@ -1,0 +1,17 @@
+server:
+  port: 8085
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 1
+        max-concurrency: 5
+        retry:
+          enabled: true
+    publisher-confirms: true
+    publisher-returns: true

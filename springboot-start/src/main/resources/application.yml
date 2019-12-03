@@ -1,0 +1,130 @@
+server:
+  port: 8085
+spring:
+  thymeleaf:
+    prefix: classpath:/static/
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    druid:
+      url: jdbc:mysql://localhost:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      #监控统计拦截的filters
+      filters: stat
+      driverClassName: com.mysql.cj.jdbc.Driver
+      #配置初始化大小/最小/最大
+      initialSize: 1
+      minIdle: 1
+      maxActive: 200
+      #获取连接等待超时时间
+      maxWait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      timeBetweenEvictionRunsMillis: 60000
+      #一个连接在池中最小生存的时间
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: 20
+    druid2:
+      url: jdbc:mysql://localhost:3306/test2?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      #监控统计拦截的filters
+      filters: stat
+      driverClassName: com.mysql.cj.jdbc.Driver
+      #配置初始化大小/最小/最大
+      initialSize: 1
+      minIdle: 1
+      maxActive: 200
+      #获取连接等待超时时间
+      maxWait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      timeBetweenEvictionRunsMillis: 60000
+      #一个连接在池中最小生存的时间
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: 20
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1
+        max-idle: 10
+        min-idle: 1
+    timeout:
+      seconds: 5
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 1
+        max-concurrency: 5
+        retry:
+          enabled: true
+    publisher-confirms: true
+
+
+  #mybatis:
+#  mapper-locations: classpath:config/mweb/sql_*.xml
+  #config-location: classpath:/resources/mysql/mybatis_plus_xml/mybatis/mybatis_config.xml
+#  type-aliases-package: com.linux.huhx.learn.mybatis.bean
+
+#MyBatis
+mybatis-plus2:
+  #mapper-locations: classpath:mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.ycxc.admin.api.dao.main.entity
+  #配置文件
+  #config-location: classpath:/resources/mysql/mybatis_plus_xml/mybatis/mybatis_config.xml
+  global-config: 
+    #是否缓存 Sql 解析，默认不缓存。
+    sql-parser-cache: true
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+    #自定义SQL注入器
+    #sqlInjector: com.baomidou.mybatisplus.extension.injector.LogicSqlInjector.class
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    db-config: 
+      db-type: mysql
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: UUID
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: NOT_NULL
+      # 逻辑已删除值(默认为 1)
+      #logic-delete-value: 1
+      #逻辑未删除值(默认为 0)
+      #logic-not-delete-value: 0
+  configuration:
+    #是否开启自动驼峰命名规则（camel case）映射
+    map-underscore-to-camel-case: true
+    #全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存，默认为 true。
+    cache-enabled: false
+    #指定当结果集中值为 null 的时候是否调用映射对象的 Setter（Map 对象时为 put）方法
+    call-setters-on-nulls: true
+    auto-mapping-behavior: FULL
+#日志的方式打印sql
+logging: 
+  level: 
+    com.boot.api.service.controller: DEBUG
+    com.boot.api.dao.mapper: DEBUG
+    com.boot.api.controller: DEBUG
+

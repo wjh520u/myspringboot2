@@ -1,0 +1,10 @@
+# Project exclude paths
+/java/target/
+/java_sdk_v3.0.9/target/
+/netty/target/
+/springboot-jta/target/
+/springboot-kafka/target/
+/springboot-rabittmq/target/
+/springboot-redis/target/
+/springboot-shiro/target/
+/springboot-start/target/
