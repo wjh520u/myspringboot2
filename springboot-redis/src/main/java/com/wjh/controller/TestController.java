@@ -21,6 +21,11 @@ public class TestController {
     RedisUtil redisUtil;
 
     @RequestMapping("test")
+    public Object test0x(){
+        return redisUtil.get("test");
+    }
+
+    @RequestMapping("test2")
     public Object test(){
 
         String lockKey = RedisLock.lock("lockKey");

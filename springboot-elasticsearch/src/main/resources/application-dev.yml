@@ -1,0 +1,11 @@
+server:
+  port: 8089
+spring:
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-nodes: ip:9300
+      cluster-name: my-application
+  jackson:
+    default-property-inclusion: non_null

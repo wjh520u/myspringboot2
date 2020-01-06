@@ -16,8 +16,8 @@
         <module>springboot-shiro</module>
         <module>netty</module>
         <module>java</module>
-        <module>wxpay-sdk</module>
         <module>springboot-jta</module>
+        <module>springboot-elasticsearch</module>
     </modules>
 
     <parent>
