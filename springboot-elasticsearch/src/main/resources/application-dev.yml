@@ -5,7 +5,7 @@ spring:
     elasticsearch:
       repositories:
         enabled: true
-      cluster-nodes: ip:9300
+      cluster-nodes: ip:93000
       cluster-name: my-application
   jackson:
     default-property-inclusion: non_null
