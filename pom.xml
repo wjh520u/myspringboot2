@@ -18,6 +18,7 @@
         <module>java</module>
         <module>springboot-jta</module>
         <module>springboot-elasticsearch</module>
+        <module>springboot-mybaits</module>
     </modules>
 
     <parent>
